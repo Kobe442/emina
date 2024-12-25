@@ -123,7 +123,7 @@ async function scrapeSW(url: string): Promise<{ url: string, key: string } | nul
         if (match2) {
             // totally robust code here
             // replace shenanigans cuz i'm too lazy
-            return { url: match2[1].replace('\'', '0'), key: keyMatches ? keyMatches[1] : '' };
+            return { url: match2[1].replace(/'/g, '0'), key: keyMatches ? keyMatches[1] : '' };
         }
     } catch (e: any) {
         console.error('failed to scrape sw: ' + e.message);
